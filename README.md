@@ -1,10 +1,17 @@
-# MultiModal AI ChatBot with Groq
+# MultiModal AI Document Assistant
 
-A sophisticated AI-powered chatbot with document processing capabilities and knowledge base management. This application uses **Groq's ultra-fast LLM API** for inference, allowing users to upload various document types (PDF, DOCX, TXT, MD, images), build a searchable knowledge base, and have intelligent conversations with AI models like Mixtral, LLaMA3, and more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Node.js 18+](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org/)
+
+**Author:** Divya Nayan
+**Contact:** divyanayan88@gmail.com
+
+A sophisticated AI-powered document assistant with intelligent processing capabilities and knowledge base management. This application provides ultra-fast inference for document analysis, allowing users to upload various document types (PDF, DOCX, TXT, MD, images), build a searchable knowledge base, and have intelligent conversations about their documents.
 
 ## Features
 
-- **Groq-Powered LLMs**: Uses Groq's free tier with models like Mixtral 8x7B, LLaMA3 70B, and Gemma 7B
+- **Advanced Language Models**: Supports multiple state-of-the-art language models for optimal performance
 - **Multi-format Document Support**: Upload and process PDF, DOCX, TXT, Markdown, and image files (JPG, PNG)
 - **Intelligent OCR**: Extract text from images using Tesseract OCR
 - **Vector Database**: Efficient document search using ChromaDB and sentence transformers
@@ -14,19 +21,18 @@ A sophisticated AI-powered chatbot with document processing capabilities and kno
 - **RESTful API**: Well-documented FastAPI backend
 - **Docker Support**: Easy deployment with Docker Compose
 
-## Groq Models Available (Free Tier)
+## Available Language Models
 
-- **Mixtral 8x7B (32k context)** - Best quality, largest context window
-- **LLaMA3 70B (8k context)** - Latest LLaMA model with good performance
-- **LLaMA3 8B (8k context)** - Faster, lighter version
-- **LLaMA2 70B (4k context)** - Previous generation LLaMA
-- **Gemma 7B Instruct** - Google's efficient model
+- **High-Performance Models** - Best quality with large context windows
+- **Optimized Models** - Latest generation with excellent performance
+- **Fast Models** - Quick response times for real-time interactions
+- **Specialized Models** - Tailored for specific document processing tasks
 
 ## Tech Stack
 
 ### Backend
 - **FastAPI**: Modern Python web framework
-- **Groq SDK**: For LLM inference
+- **Advanced AI SDK**: For language model inference
 - **SQLAlchemy**: Database ORM with async support
 - **ChromaDB**: Vector database for semantic search
 - **Sentence Transformers**: For document embeddings
@@ -46,7 +52,7 @@ A sophisticated AI-powered chatbot with document processing capabilities and kno
 - Python 3.11+
 - Node.js 18+
 - Docker and Docker Compose (for containerized deployment)
-- Groq API Key (get free at https://console.groq.com)
+- AI API Key (obtain from your AI provider)
 - Redis (optional, for caching)
 - Tesseract OCR (for image text extraction)
 
@@ -82,10 +88,10 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-6. Edit `.env` file and add your Groq API key:
+6. Edit `.env` file and add your AI API key:
 ```env
-GROQ_API_KEY=your-groq-api-key-here
-GROQ_MODEL=mixtral-8x7b-32768
+AI_API_KEY=your-api-key-here
+AI_MODEL=your-preferred-model
 ```
 
 7. Start the backend server:
@@ -123,7 +129,7 @@ cd chatbot
 2. Create environment file:
 ```bash
 cp backend/.env.example backend/.env
-# Edit backend/.env and add your Groq API key
+# Edit backend/.env and add your AI API key
 ```
 
 3. Start all services:
@@ -147,7 +153,7 @@ docker-compose up -d
 - Type your message in the input field
 - The AI will respond using both general knowledge and your uploaded documents
 - Chat history is preserved across sessions
-- Powered by Groq's ultra-fast inference
+- Powered by advanced AI inference
 
 ### 3. Knowledge Base Search
 - Click on "Knowledge Base" in the sidebar
@@ -163,10 +169,10 @@ When the backend is running, access the interactive API documentation at:
 
 ## Configuration
 
-### Getting a Groq API Key
+### Getting an AI API Key
 
-1. Visit https://console.groq.com
-2. Sign up for a free account
+1. Contact your preferred AI service provider
+2. Sign up for an account
 3. Generate an API key
 4. Add it to your `.env` file
 
@@ -175,9 +181,9 @@ When the backend is running, access the interactive API documentation at:
 Key environment variables in `backend/.env`:
 
 ```env
-# Groq Configuration
-GROQ_API_KEY=your-groq-api-key
-GROQ_MODEL=mixtral-8x7b-32768
+# AI Configuration
+AI_API_KEY=your-ai-api-key
+AI_MODEL=your-preferred-model
 MAX_TOKENS=4096
 TEMPERATURE=0.7
 
@@ -193,21 +199,21 @@ CHROMA_PERSIST_DIR=./data/vectordb
 DATABASE_URL=sqlite+aiosqlite:///./data/chatbot.db
 ```
 
-### Changing Groq Models
+### Changing AI Models
 
-Update `GROQ_MODEL` in `.env`:
+Update `AI_MODEL` in `.env`:
 ```env
-# For best quality (32k context):
-GROQ_MODEL=mixtral-8x7b-32768
+# For best quality:
+AI_MODEL=high-performance-model
 
-# For LLaMA3 70B (8k context):
-GROQ_MODEL=llama3-70b-8192
+# For balanced performance:
+AI_MODEL=optimized-model
 
 # For faster responses:
-GROQ_MODEL=llama3-8b-8192
+AI_MODEL=fast-model
 
-# For Google's Gemma:
-GROQ_MODEL=gemma-7b-it
+# For specialized tasks:
+AI_MODEL=specialized-model
 ```
 
 Then restart the backend server.
@@ -223,7 +229,7 @@ chatbot/
 │   │   ├── db/            # Database models
 │   │   ├── models/        # Data models
 │   │   └── services/      # Business logic
-│   │       ├── groq_llm_service.py  # Groq integration
+│   │       ├── ai_service.py       # AI integration
 │   │       ├── chat_service.py      # Chat management
 │   │       └── ...
 │   ├── data/              # Data storage
@@ -273,22 +279,22 @@ The application can be deployed to:
 
 ## Performance
 
-Groq provides:
-- **Ultra-fast inference**: Up to 10x faster than traditional APIs
-- **Free tier**: Generous rate limits for development
-- **High-quality models**: Access to state-of-the-art open models
+The system provides:
+- **Ultra-fast inference**: Optimized for high-speed document processing
+- **Scalable architecture**: Supports varying usage patterns
+- **High-quality results**: State-of-the-art language model performance
 
-## Rate Limits (Free Tier)
+## Usage Considerations
 
-- Requests per minute: ~30
-- Tokens per minute: ~15,000
-- Ideal for development and small applications
+- Request limits vary by AI provider
+- Token usage optimized for efficiency
+- Scalable for both development and production use
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Groq API errors**:
+1. **AI API errors**:
    - Verify API key is correct
    - Check rate limits haven't been exceeded
    - Try a different model if one is unavailable
@@ -318,7 +324,7 @@ MIT License - see LICENSE file for details
 For issues and questions:
 - Create an issue on GitHub
 - Check the API documentation
-- Review Groq's documentation at https://console.groq.com/docs
+- Contact: Divya Nayan (divyanayan88@gmail.com)
 
 ## Roadmap
 

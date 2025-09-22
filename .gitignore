@@ -66,6 +66,13 @@ vectordb/
 coverage/
 .nyc_output/
 
+# API Keys and Secrets
+*.key
+*.pem
+secrets/
+credentials/
+config/secrets.*
+
 # Misc
 *.bak
 *.tmp
